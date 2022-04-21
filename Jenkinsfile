@@ -7,7 +7,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                sh 'mvn clean install'
+            }
+        }
+        stage('deploy') {
+            steps {
+                sh 'mvn springboot:run'
             }
         }
     }
