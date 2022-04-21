@@ -20,5 +20,10 @@ pipeline {
                 sh 'mvn spring-boot:run'
             }
         }
+        stage('test') {
+            steps {
+                sh 'curl http://localhost:8090'
+            }
+        }
     }
 }
