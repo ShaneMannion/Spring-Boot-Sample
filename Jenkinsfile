@@ -12,6 +12,12 @@ pipeline {
         }
         stage('deploy') {
             steps {
+                sh 'pwd'
+            }
+            steps {
+                sh 'ls -lrt'
+            }            
+            steps {
                 sh 'mvn springboot:run'
             }
         }
