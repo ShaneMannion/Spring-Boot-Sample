@@ -10,13 +10,12 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('deploy') {
+        stage('checks') {
             steps {
-                sh 'pwd'
+                sh 'ls -lrt && pwd'
             }
-            steps {
-                sh 'ls -lrt'
-            }            
+        }        
+        stage('deploy') {
             steps {
                 sh 'mvn springboot:run'
             }
