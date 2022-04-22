@@ -1,3 +1,8 @@
+#!groovy
+@Library('pipeline-library-sample')
+import com.yorku.DemoLibrary
+def demoLibrary = new DemoLibrary()
+
 pipeline {
     agent { 
         node {
@@ -7,6 +12,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                demoLibrary.outputReport
                 sh 'mvn clean install'
             }
         }
