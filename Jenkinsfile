@@ -15,15 +15,5 @@ pipeline {
                 sh 'ls -lrt && pwd'
             }
         }        
-        stage('deploy') {
-            steps {
-                sh 'mvn spring-boot:run'
-            }
-        }
-        stage('test') {
-            steps {
-                sh 'curl http://localhost:8090'
-            }
-        }
     }
 }
