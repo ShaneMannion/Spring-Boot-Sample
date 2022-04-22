@@ -1,7 +1,6 @@
 #!groovy
-@Library('pipeline-library-sample')
-import com.yorku.DemoLibrary
-def demoLibrary = new DemoLibrary()
+@Library("pipeline-library-sample") _
+def demoLibrary = new com.yorku.DemoLibrary()
 
 pipeline {
     agent { 
