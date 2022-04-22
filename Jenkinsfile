@@ -11,8 +11,10 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                demoLibrary.outputReport()
-                sh 'mvn clean install'
+                script{
+                    demoLibrary.outputReport()
+                    sh 'mvn clean install'
+                }
             }
         }
         stage('checks') {
