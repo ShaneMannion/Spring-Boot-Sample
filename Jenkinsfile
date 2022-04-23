@@ -8,6 +8,14 @@ pipeline {
             label 'linux-node'
         }
     }
+    parameters {
+        booleanParam(name: 'SAVE_JAR',
+            defaultValue: true,
+            description: 'Checkbox parameter')
+        string(name: 'JOB_NOTES',
+            defaultValue: '',
+            description: 'Add build specific notes')
+    }    
     stages {
         stage('build') {
             steps {
@@ -20,6 +28,9 @@ pipeline {
             }
         }  
         stage('copy latest jar'){
+            when{
+                expression { SAVE_JAR == true }
+            }            
             steps {
                 sh 'mkdir -p ~/jars && cp ./target/*.jar ~/jars'
             }
@@ -28,7 +39,7 @@ pipeline {
     post {
         always {
             script{ 
-                demoLibrary.outputReport()
+                demoLibrary.outputReport(JOB_NOTES)
             }
         }
         success {
