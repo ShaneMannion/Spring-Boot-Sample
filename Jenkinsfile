@@ -12,7 +12,7 @@ pipeline {
         stage('build') {
             steps {
                 script{
-                    demoLibrary.outputReport("test")
+                    demoLibrary.outputReport()
                     sh 'mvn clean install'
                 }
             }
