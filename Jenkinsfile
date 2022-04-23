@@ -9,10 +9,11 @@ pipeline {
         }
     }
     parameters {
-        booleanParam(name: 'SAVE_JAR',
-            defaultValue: true,
-            description: 'Checkbox parameter')
-    }    
+        choice(
+            choices: ['true' , 'false'],
+            description: 'Do you wish to save the jar after the build?',
+            name: 'SAVE_JAR')
+    }
     stages {
         stage('build') {
             steps {
@@ -25,9 +26,9 @@ pipeline {
             }
         }  
         stage('copy latest jar'){
-            when{
-                expression { SAVE_JAR == true }
-            }            
+            when {
+                expression { params.SAVE_JAR == 'true' }
+            }          
             steps {
                 sh 'mkdir -p ~/jars && cp ./target/*.jar ~/jars'
             }
