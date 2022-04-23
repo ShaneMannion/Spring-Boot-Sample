@@ -16,7 +16,7 @@ pipeline {
         }
         stage('check workspace details') {
             steps {
-                sh 'ls -lrt && pwd'
+                sh 'pwd && ls -lrt'
             }
         }  
         stage('copy latest jar'){
@@ -24,7 +24,6 @@ pipeline {
                 sh 'mkdir -p ~/jars && cp ./target/*.jar ~/jars'
             }
         }
-
     }
     post {
         always {
