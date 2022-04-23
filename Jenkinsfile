@@ -12,9 +12,6 @@ pipeline {
         booleanParam(name: 'SAVE_JAR',
             defaultValue: true,
             description: 'Checkbox parameter')
-        string(name: 'JOB_NOTES',
-            defaultValue: '',
-            description: 'Add build specific notes')
     }    
     stages {
         stage('build') {
@@ -39,7 +36,7 @@ pipeline {
     post {
         always {
             script{ 
-                demoLibrary.outputReport(JOB_NOTES)
+                demoLibrary.outputReport()
             }
         }
         success {
