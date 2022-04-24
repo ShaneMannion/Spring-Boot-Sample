@@ -22,4 +22,9 @@ public class HelloController {
 	public String DevOps(@RequestParam(value = "name", defaultValue = "Unit") String name) {
 		return name + " testing";
 	}
+
+	@PostMapping("/YorkU")
+	public String YorkU(@RequestParam(value = "name", defaultValue = "Zoom") String name) {
+		return name + " Day";
+	}
 }
