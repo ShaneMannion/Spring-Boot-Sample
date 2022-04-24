@@ -1,6 +1,3 @@
-#!groovy
-@Library("pipeline-library-sample") _
-def demoLibrary = new com.yorku.DemoLibrary()
 
 pipeline {
     agent { 
@@ -35,11 +32,6 @@ pipeline {
         }
     }
     post {
-        always {
-            script{ 
-                demoLibrary.outputReport()
-            }
-        }
         success {
             echo 'Job completed successfully'
         }
