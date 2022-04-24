@@ -15,7 +15,7 @@ public class HelloController {
 
 	@GetMapping("/DevOps")
 	public String DevOps() {
-		return "Flow; fast feeback; learning & experimentation";
+		return "Flow; fast feedback; learning & experimentation";
 	}
 
 	@PostMapping("/DevOps")
