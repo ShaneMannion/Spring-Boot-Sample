@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         node {
-            label 'java-node'
+            label 'Java-Node'
         }
     }
     parameters {
