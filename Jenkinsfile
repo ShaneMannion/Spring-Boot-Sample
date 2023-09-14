@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         node {
-            label 'linux-node'
+            label 'java-node'
         }
     }
     parameters {
