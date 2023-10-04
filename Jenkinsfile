@@ -1,5 +1,6 @@
 pipeline {
-
+    agent { 
+    }
     parameters {
         choice(
             choices: ['true' , 'false'],
