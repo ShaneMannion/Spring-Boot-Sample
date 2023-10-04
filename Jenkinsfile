@@ -1,9 +1,5 @@
 pipeline {
-    agent { 
-        node {
-            label 'Java-Node'
-        }
-    }
+
     parameters {
         choice(
             choices: ['true' , 'false'],
