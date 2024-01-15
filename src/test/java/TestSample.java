@@ -7,6 +7,6 @@ public class TestSample {
     public void testMethod() {
         System.out.println("Inside testMethod()");
         int check = 1 + 1;
-	assertEquals(check,3);
+	assertEquals(check,2);
     }
 }
